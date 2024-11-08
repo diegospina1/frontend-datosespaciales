@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/stylessheet.css">
+    <title>Formulario</title>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvtlGODPY825ifZj_tKjC5KliMWiER0M4&callback=console.debug&libraries=maps,marker&v=beta">
+    </script>
+</head>
+<body onload="initMap()" class="body-container">
+<header class="header">
+    <button class="nav-button" onclick="navigateToStudentsList()">Ir a la lista de Estudiantes</button>
+</header>
+<main class="main-layout">
+    <section class="form-container">
+        <form id="studentForm" class="form">
+            <h2 class="form-title">Formulario de Registro</h2>
+            <div class="form-group">
+                <label for="ndocumento" class="form-label">Numero de documento:</label>
+                <input type="text" id="ndocumento" name="ndocumento" class="form-input" required>
+            </div>
+            <div class="form-group">
+                <label for="nombres" class="form-label">Nombres:</label>
+                <input type="text" id="nombres" name="nombres" class="form-input" required>
+            </div>
+            <div class="form-group">
+                <label for="apellidos" class="form-label">Apellidos:</label>
+                <input type="text" id="apellidos" name="apellidos" class="form-input" required>
+            </div>
+            <div class="section">
+                <h3>Dirección de residencia</h3>
+                <div class="input-group">
+                    <label for="direccionR">Dirección:</label>
+                    <input type="text" id="direccionR" class="direccion-input">
+                    <button type="button" class="buscar-btn" onclick="geocodeAddress1()">Buscar</button>
+                </div>
+                <div class="input-group-row">
+                    <div>
+                        <label for="lat1">Latitud:</label>
+                        <input type="text" id="lat1" name="lat1" readonly>
+                    </div>
+                    <div>
+                        <label for="lng1">Longitud:</label>
+                        <input type="text" id="lng1" name="lng1" readonly>
+                    </div>
+                </div>
+            </div>
+            <hr class="divider">
+            <div class="section">
+                <h3>Dirección de trabajo</h3>
+                <div class="input-group">
+                    <label for="direccionT">Dirección:</label>
+                    <input type="text" id="direccionT" class="direccion-input">
+                    <button type="button" class="buscar-btn" onclick="geocodeAddress2()">Buscar</button>
+                </div>
+                <div class="input-group-row">
+                    <div>
+                        <label for="lat2">Latitud:</label>
+                        <input type="text" id="lat2" name="lat2" readonly>
+                    </div>
+                    <div>
+                        <label for="lng2">Longitud:</label>
+                        <input type="text" id="lng2" name="lng2" readonly>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="submit-button" onclick="sendStudent()">Guardar Usuario</button>
+        </form>
+    </section>
+    <section class="map-container">
+        <div id="map" class="map"></div>
+    </section>
+    <script src="./scripts/app.js"></script>
+</main>
+</body>
+</html>
